@@ -1,0 +1,65 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Your Choice Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h1>Enter Your Choice</h1>
+    <form id="choiceForm" action="php-response.php" method="GET">
+        <div class="form-group">
+            <label for="choice">YOUR CHOICE:</label>
+            <input type="text" id="choice" name="choice" required>
+        </div>
+        <button type="submit">Submit</button>
+    </form>
+
+    <script>
+        document.getElementById('choiceForm').onsubmit = function(e) {
+            // Get the input value
+            const choice = document.getElementById('choice').value;
+            
+            // Basic validation
+            if (choice.trim() === '') {
+                e.preventDefault();
+                alert('Please enter your choice!');
+                return false;
+            }
+            return true;
+        };
+    </script>
+</body>
+</html>
